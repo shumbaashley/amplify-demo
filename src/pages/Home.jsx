@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Heading, Text, useTheme } from '@aws-amplify/ui-react';
 
 import CardItem from '../components/CardItem';
+import AddItem from '../components/AddItem';
 import Loading from '../components/Loading';
 
 const Home = () => {
@@ -28,6 +29,8 @@ const Home = () => {
       {items.map(item => {
         return <CardItem key={item.id} {...item} />;
       })}
+
+      <AddItem />
     </>
   );
 };

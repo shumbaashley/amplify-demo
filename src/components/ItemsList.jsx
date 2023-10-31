@@ -52,14 +52,17 @@ const ItemsList = () => {
               <TableRow>
                 <TableCell>{item.name}</TableCell>
                 <TableCell>
-                  {item.type === 'Expense' && <Badge variation="error">{item.type}</Badge>}
-                  {item.type === 'Income' && <Badge variation="info">{item.type}</Badge>}
+                  {item.type === 'Expense' && (
+                    <Badge variation="error">{item.type}</Badge>
+                  )}
+                  {item.type === 'Income' && (
+                    <Badge variation="info">{item.type}</Badge>
+                  )}
                 </TableCell>
                 <TableCell>{item.amount}</TableCell>
               </TableRow>
             );
           })}
-
         </TableBody>
       </Table>
     </Grid>

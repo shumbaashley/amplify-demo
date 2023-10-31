@@ -1,21 +1,15 @@
-import { useState } from 'react'
+import { useState } from 'react';
 import { Button } from '@aws-amplify/ui-react';
-import './App.css'
 import '@aws-amplify/ui-react/styles.css';
+import Home from './pages/Home';
+import { ThemeProvider } from '@aws-amplify/ui-react';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <h1>Amplify Demo</h1>
-      <div className="card">
-        <Button variation="primary" onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </Button>
-      </div>
-    </>
-  )
+    <ThemeProvider colorMode="light">
+      <Home />
+    </ThemeProvider>
+  );
 }
 
-export default App
+export default App;

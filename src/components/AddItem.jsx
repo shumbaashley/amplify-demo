@@ -1,5 +1,12 @@
 import { useState } from 'react';
-import { Flex, Input, Label, SelectField, Button } from '@aws-amplify/ui-react';
+import {
+  Flex,
+  Input,
+  Label,
+  SelectField,
+  Button,
+  TextAreaField,
+} from '@aws-amplify/ui-react';
 
 const AddItem = () => {
   const [name, setName] = useState('');
@@ -14,7 +21,7 @@ const AddItem = () => {
   const submit = e => {
     e.preventDefault();
     console.log('submitting');
-    console.log({name, type, description, amount});
+    console.log({ name, type, description, amount });
   };
 
   return (
@@ -23,34 +30,49 @@ const AddItem = () => {
         <form action="" method="post" onSubmit={submit}>
           <Flex direction="column" gap="small">
             <Label htmlFor="name">Name:</Label>
-            <Input id="name" name="name" onChange={(e) => setName(e.target.value)} />
+            <Input
+              id="name"
+              name="name"
+              onChange={e => setName(e.target.value)}
+            />
           </Flex>
 
           <Flex direction="column" gap="small">
             <Label htmlFor="amount">Amount:</Label>
-            <Input id="amount" name="amount" type="number" onChange={(e) => setAmount(e.target.value)} />
+            <Input
+              id="amount"
+              name="amount"
+              type="number"
+              onChange={e => setAmount(e.target.value)}
+            />
           </Flex>
 
-          <Flex direction="column" gap="small">
-            <Label htmlFor="description">Description (Optional):</Label>
-            <Input id="description" name="description" onChange={(e) => setDescription(e.target.value)} />
-          </Flex>
+          <TextAreaField
+            descriptiveText="Enter more details"
+            label="Description"
+            name="description"
+            placeholder=""
+            onChange={e => setDescription(e.target.value)}
+            rows={3}
+          />
 
-        <SelectField label="Item type:" onChange={(e) => setType(e.target.value)}>
-          {typeOptions.map(typeOption => {
-            return (
-              <option key={typeOption.value} value={typeOption.value}>
-                {typeOption.name}
-              </option>
-            );
-          })}
-        </SelectField>
+          <SelectField
+            label="Item type:"
+            onChange={e => setType(e.target.value)}
+          >
+            {typeOptions.map(typeOption => {
+              return (
+                <option key={typeOption.value} value={typeOption.value}>
+                  {typeOption.name}
+                </option>
+              );
+            })}
+          </SelectField>
 
-        <Button variation="primary" type="submit" loadingText="...">
-          Add Item
-        </Button>
+          <Button variation="primary" type="submit" loadingText="...">
+            Add Item
+          </Button>
         </form>
-
       </Flex>
     </>
   );

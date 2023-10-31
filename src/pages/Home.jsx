@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Heading, Text, useTheme } from '@aws-amplify/ui-react';
+import { Heading, Text, useTheme, Grid } from '@aws-amplify/ui-react';
 
 import CardItem from '../components/CardItem';
 import AddItem from '../components/AddItem';
@@ -22,15 +22,17 @@ const Home = () => {
 
   return (
     <>
-      <Heading level={2} fontWeight={tokens.fontWeights.medium}>
-        Cashflow Control
-      </Heading>
-      {isLoading && <Loading />}
-      {items.map(item => {
-        return <CardItem key={item.id} {...item} />;
-      })}
+      <Grid>
+        <Heading level={3} fontWeight={tokens.fontWeights.medium}>
+          Cashflow Control
+        </Heading>
+        {isLoading && <Loading />}
+        {items.map(item => {
+          return <CardItem key={item.id} {...item} />;
+        })}
 
-      <AddItem />
+        <AddItem />
+      </Grid>
     </>
   );
 };

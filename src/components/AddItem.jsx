@@ -6,9 +6,14 @@ import {
   SelectField,
   Button,
   TextAreaField,
+  Heading,
+  useTheme,
+  Grid,
 } from '@aws-amplify/ui-react';
 
 const AddItem = () => {
+  const { tokens } = useTheme();
+
   const [name, setName] = useState('');
   const [type, setType] = useState('income');
   const [description, setDescription] = useState('');
@@ -25,8 +30,11 @@ const AddItem = () => {
   };
 
   return (
-    <>
+    <Grid>
       <Flex direction="column">
+        <Heading level={4} fontWeight={tokens.fontWeights.normal}>
+          Add New Item
+        </Heading>
         <form action="" method="post" onSubmit={submit}>
           <Flex direction="column" gap="small">
             <Label htmlFor="name">Name:</Label>
@@ -74,7 +82,7 @@ const AddItem = () => {
           </Button>
         </form>
       </Flex>
-    </>
+    </Grid>
   );
 };
 

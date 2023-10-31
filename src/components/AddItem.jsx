@@ -57,7 +57,7 @@ const AddItem = () => {
 
           <TextAreaField
             descriptiveText="Enter more details"
-            label="Description"
+            label="Description (Optional):"
             name="description"
             placeholder=""
             onChange={e => setDescription(e.target.value)}

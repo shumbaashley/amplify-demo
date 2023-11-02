@@ -15,7 +15,7 @@
       "function": {
         "amplifydemof23f2c7a": {
           "deploymentBucketName": "amplify-amplifydemo-dev-142856-deployment",
-          "s3Key": "amplify-builds/amplifydemof23f2c7a-424c314f594457437075-build.zip"
+          "s3Key": "amplify-builds/amplifydemof23f2c7a-472b3334714b706c6334-build.zip"
         }
       },
       "api": {

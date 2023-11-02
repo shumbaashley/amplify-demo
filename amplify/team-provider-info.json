@@ -20,6 +20,9 @@
       },
       "api": {
         "demoapi12345": {}
+      },
+      "storage": {
+        "dynamo7d32e73b": {}
       }
     }
   }

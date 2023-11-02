@@ -1,0 +1,10 @@
+{
+  "resourceName": "dynamo7d32e73b",
+  "tableName": "dynamo7d32e73b",
+  "partitionKey": {
+    "fieldName": "dateCreated",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}

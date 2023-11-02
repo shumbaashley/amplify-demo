@@ -1,14 +1,17 @@
 import json
 import datetime
+import boto3
 
+client = boto3.client('dynamodb')
 
 def handler(event, context):
   print('received event:')
   print(event)
-  current_time = datetime.datetime.now().time()
-  body = {
-      'message': 'Hello, the current time is ' + str(current_time)
-  }
+
+  data = client.scan(
+    TableName='dynamo7d32e73b-dev'
+  )
+  
   return {
       'statusCode': 200,
       'headers': {
@@ -16,5 +19,6 @@ def handler(event, context):
           'Access-Control-Allow-Origin': '*',
           'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
       },
-      'body': json.dumps(body)
+      'body': json.dumps(data)
   }
+

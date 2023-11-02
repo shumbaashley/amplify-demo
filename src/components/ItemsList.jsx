@@ -49,7 +49,7 @@ const ItemsList = () => {
         <TableBody>
           {items.map(item => {
             return (
-              <TableRow>
+              <TableRow key={item.name}>
                 <TableCell>{item.name}</TableCell>
                 <TableCell>
                   {item.type === 'Expense' && (

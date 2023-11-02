@@ -4,6 +4,13 @@ import App from './App.jsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ErrorPage from "./error-page";
 
+
+import { Amplify, API } from 'aws-amplify';
+import awsconfig from './aws-exports';
+
+Amplify.configure(awsconfig);
+
+
 const router = createBrowserRouter([
   {
     path: '/',

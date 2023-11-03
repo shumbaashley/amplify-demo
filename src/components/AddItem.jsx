@@ -19,17 +19,19 @@ const AddItem = () => {
   const [category, setCategory] = useState('');
   const [description, setDescription] = useState('');
   const [amount, setAmount] = useState(0);
-  const [typeOptions, setTypeOptions] = useState([
+
+  // CONSTANTS
+  const typeOptions = [
     { value: 'income', name: 'Income' },
     { value: 'expense', name: 'Expense' },
-  ]);
-  const [incomeCategories, setIncomeCategories] = useState([
+  ]
+  const incomeCategories = [
     { value: "Earned income", label: "Earned income" },
     { value: "Passive income", label: "Passive income" },
     { value: "Portfolio income", label: "Portfolio income" },
-  ])
+  ]
 
-  const [expenseCategories, setExpenseCategories] = useState([
+  const expenseCategories = [
     { value: "Housing", label: "Housing" },
     { value: "Transportation", label: "Transportation" },
     { value: "Food", label: "Food" },
@@ -40,7 +42,7 @@ const AddItem = () => {
     { value: "Personal Spending", label: "Personal Spending" },
     { value: "Recreation & Entertainment", label: "Recreation & Entertainment" },
     { value: "Miscellaneous", label: "Miscellaneous" }
-  ])
+  ]
 
 
   const submit = e => {

@@ -12,7 +12,7 @@ const Home = () => {
         <Header />
         <ItemsList />
         <AddItem />
-        <TestAPI/>
+        {/* <TestAPI/> */}
       </Grid>
     </>
   );

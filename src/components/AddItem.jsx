@@ -16,17 +16,37 @@ const AddItem = () => {
 
   const [name, setName] = useState('');
   const [type, setType] = useState('income');
+  const [category, setCategory] = useState('');
   const [description, setDescription] = useState('');
   const [amount, setAmount] = useState(0);
   const [typeOptions, setTypeOptions] = useState([
     { value: 'income', name: 'Income' },
     { value: 'expense', name: 'Expense' },
   ]);
+  const [incomeCategories, setIncomeCategories] = useState([
+    { value: "Earned income", label: "Earned income" },
+    { value: "Passive income", label: "Passive income" },
+    { value: "Portfolio income", label: "Portfolio income" },
+  ])
+
+  const [expenseCategories, setExpenseCategories] = useState([
+    { value: "Housing", label: "Housing" },
+    { value: "Transportation", label: "Transportation" },
+    { value: "Food", label: "Food" },
+    { value: "Utilities", label: "Utilities" },
+    { value: "Insurance", label: "Insurance" },
+    { value: "Medical & Healthcare", label: "Medical & Healthcare" },
+    { value: "Debt Payments", label: "Debt Payments" },
+    { value: "Personal Spending", label: "Personal Spending" },
+    { value: "Recreation & Entertainment", label: "Recreation & Entertainment" },
+    { value: "Miscellaneous", label: "Miscellaneous" }
+  ])
+
 
   const submit = e => {
     e.preventDefault();
     console.log('submitting');
-    console.log({ name, type, description, amount });
+    console.log({ name, type, description, amount, category });
   };
 
   return (
@@ -51,18 +71,10 @@ const AddItem = () => {
               id="amount"
               name="amount"
               type="number"
-              onChange={e => setAmount(e.target.value)}
+              onChange={e => setAmount(parseInt(e.target.value))}
             />
           </Flex>
 
-          <TextAreaField
-            descriptiveText="Enter more details"
-            label="Description (Optional):"
-            name="description"
-            placeholder=""
-            onChange={e => setDescription(e.target.value)}
-            rows={3}
-          />
 
           <SelectField
             label="Item type:"
@@ -76,6 +88,53 @@ const AddItem = () => {
               );
             })}
           </SelectField>
+          {
+            type === 'expense' && (
+              <SelectField
+                label="Expense Category:"
+                onChange={e => setCategory(e.target.value)}
+              >
+                <option value=''></option>
+
+                {expenseCategories.map(category => {
+                  return (
+                    <option key={category.value} value={category.value}>
+                      {category.label}
+                    </option>
+                  );
+                })}
+              </SelectField>
+            )
+          }
+          {
+            type === 'income' && (
+              <SelectField
+                label="Income Category:"
+                onChange={e => setCategory(e.target.value)}
+              >
+                <option value=''></option>
+
+                {incomeCategories.map(category => {
+                  return (
+                    <option key={category.value} value={category.value}>
+                      {category.label}
+                    </option>
+                  );
+                })}
+              </SelectField>
+            )
+          }
+
+
+          <TextAreaField
+            descriptiveText="Enter more details"
+            label="Description (Optional):"
+            name="description"
+            placeholder=""
+            onChange={e => setDescription(e.target.value)}
+            rows={3}
+          />
+
 
           <Button variation="primary" type="submit" loadingText="...">
             Add Item
